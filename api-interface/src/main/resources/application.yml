@@ -1,0 +1,27 @@
+server:
+  port: 8088
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: PROFILE-SERVICE
+          uri: http://localhost:8080
+          predicates:
+            - Path=/profile/**
+        - id: WORKSPACE-SERVICE
+          uri: http://localhost:8081
+          predicates:
+            - Path=/workspace/**
+        - id: BOARD-SERVICE
+          uri: http://localhost:8082
+          predicates:
+            - Path=/board/**
+        - id: LIST-SERVICE
+          uri: http://localhost:8084
+          predicates:
+            - Path=/list/**
+        - id: CARD-SERVICE
+          uri: http://localhost:8085
+          predicates:
+            - Path=/card/**
